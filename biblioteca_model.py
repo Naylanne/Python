@@ -4,7 +4,7 @@ class BibliotecaModel:
     def __init__(self):
         try:
             self.conn = psycopg2.connect(
-                dbname="biblioteca",
+                dbname="postgres",
                 user="postgres",
                 password="3699",
                 host="localhost",
@@ -119,4 +119,5 @@ class LivroModel(BibliotecaModel):
             print(f"\nErro ao excluir livro: {e}\n")
             self.conn.rollback()
             return False
+
 
