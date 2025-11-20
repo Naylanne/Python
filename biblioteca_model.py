@@ -24,7 +24,7 @@ class BibliotecaModel:
     def existe_id(self, tabela, id_valor):
         try:
             self.cursor.execute(f"select 1 from {tabela} where id=%s;", (id_valor,))
-            return self.cursor.fetchone is not None
+            return self.cursor.fetchone() is not None
         except Exception as e:
             print(f"\nErro ao verificar: {e}\n")
             return False       
@@ -119,3 +119,4 @@ class LivroModel(BibliotecaModel):
             print(f"\nErro ao excluir livro: {e}\n")
             self.conn.rollback()
             return False
+
